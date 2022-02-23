@@ -1,0 +1,99 @@
+import { createGlobalStyle } from "styled-components";
+
+export default createGlobalStyle`
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing:border-box;
+        outline: 0;
+    }
+
+    li {
+        list-style: none;
+    }
+
+    a {
+        text-decoration:none;
+    }
+
+
+    :root {
+        --color-primary: #FF577F;
+        --color-primary-Focus: #FF427F;
+        --color-primary-Negative: #59323f;
+
+        --grey-0: #F8F9FA;
+        --grey-1: #868E96;
+        --grey-2: #343B41;
+        --grey-3: #212529;
+        --grey-4: #121214;
+
+        --Success: #3FE864;
+        --Negative: #E83F5B;
+
+        body {
+            background: var(--grey-3);
+            font-family: "Inter", sans-serif;
+            color: var(--grey-1)
+        }
+
+        h1, h2, h3 {
+            font-size: 1rem
+        } 
+
+        h1, h3 {
+            font-weight: 700;
+        }
+
+        h2 {
+            font-weight: 600;
+        }
+
+        button {
+            font-weight: 500;
+            color: #fff; 
+            cursor: pointer;            
+        }
+
+        label {
+            font-weight: 400;
+            color: var(--grey-0);
+            font-size: 9px;
+        }
+
+        input, select {
+            color: var(--grey-0);
+            font-weight: 400;
+            font-size: 13px;
+            line-height: 21px;
+        }
+
+        input::placeholder, select::placeholder {
+            color: var(--grey-1);
+            font-weight: 400;
+            font-size: 13px;
+            line-height:21px;
+        }
+
+        @media screen and (min-width: 768px) {
+            h1, h2, h3 {
+            font-size: 18px;
+        }                 
+
+        label {            
+            font-size: 0.75rem;
+        }
+
+        input, select {            
+            font-size: 1rem;
+            line-height: 26px;
+        }
+
+        input::placeholder, select::placeholder {            
+            font-size: 1rem;
+            line-height: 26px;
+        }
+        }
+        
+    }
+`;
