@@ -3,15 +3,22 @@ import { grey0, grey2, Negative } from "../../styles/global";
 
 export const Container = styled.div`
   text-align: left;
+  width: 100%;
+
+  label {
+    margin-bottom: 18px;
+  }
 `;
 
 export const InputContainer = styled.div`
+  margin: 12px 0 15px 0;
   display: flex;
   border-radius: 4px;
   padding: 5px 0 5px 16px;
   background-color: ${grey2};
   width: 100%;
   border: 1px solid ${grey2};
+  transition: 0.5s;
 
   ${(props) =>
     props.error &&

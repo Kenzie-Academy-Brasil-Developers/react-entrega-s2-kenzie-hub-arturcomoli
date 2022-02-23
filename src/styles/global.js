@@ -32,7 +32,7 @@ export default createGlobalStyle`
         --Negative: #E83F5B;
 
         body {
-            background: var(--grey-3);
+            background: var(--grey-4);
             font-family: "Inter", sans-serif;
             color: var(--grey-1)
         }

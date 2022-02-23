@@ -1,9 +1,9 @@
 import { Container, InputContainer, HelperText } from "./styles";
 
-const Input = ({ error, ...rest }) => {
+const Input = ({ label, error, ...rest }) => {
   return (
     <Container>
-      <label>teste</label>
+      <label>{label}</label>
       <InputContainer errored={!!error}>
         <input {...rest} />
       </InputContainer>

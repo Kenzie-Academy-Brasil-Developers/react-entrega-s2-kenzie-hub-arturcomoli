@@ -1,7 +1,7 @@
 import { StyledButton } from "./styles";
 
-const Button = ({ bgColor, ...rest }) => {
-  return <StyledButton {...rest} bgColor={bgColor} />;
+const Button = ({ bgColor, header, ...rest }) => {
+  return <StyledButton {...rest} bgColor={bgColor} header={header} />;
 };
 
 export default Button;
