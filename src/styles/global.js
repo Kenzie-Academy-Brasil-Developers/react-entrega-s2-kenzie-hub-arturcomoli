@@ -52,7 +52,8 @@ export default createGlobalStyle`
         button {
             font-weight: 500;
             color: #fff; 
-            cursor: pointer;            
+            cursor: pointer;    
+            border-radius: 4px;        
         }
 
         label {
@@ -66,6 +67,8 @@ export default createGlobalStyle`
             font-weight: 400;
             font-size: 13px;
             line-height: 21px;
+            background-color: var(--grey-2);
+            border: none;
         }
 
         input::placeholder, select::placeholder {
@@ -97,3 +100,14 @@ export default createGlobalStyle`
         
     }
 `;
+
+export const primary = "#FF577F";
+export const primaryFocus = "#FF427F";
+export const primaryNegative = "#59323f";
+export const grey0 = "#F8F9FA";
+export const grey1 = "#868E96";
+export const grey2 = "#343B41";
+export const grey3 = "#212529";
+export const grey4 = "#121214";
+export const Success = "#3FE864";
+export const Negative = "#E83F5B";
