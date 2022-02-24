@@ -3,7 +3,7 @@ import { grey0, grey2, Negative } from "../../styles/global";
 
 export const Container = styled.div`
   text-align: left;
-  width: 100%;
+  width: ${(props) => (props.pword ? "48%" : "100%")};
 `;
 
 export const InputContainer = styled.div`
@@ -37,7 +37,9 @@ export const InputContainer = styled.div`
 
   input {
     align-items: center;
+    /* flex: ${(props) => (!props.pword ? "1" : "0")}; */
     flex: 1;
+    width: ${(props) => props.pword && "100%"};
   }
 `;
 

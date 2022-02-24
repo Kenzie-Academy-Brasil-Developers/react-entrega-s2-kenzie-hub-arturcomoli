@@ -6,7 +6,7 @@ export const StyledForm = styled.form`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 20px 15px;
+  padding: 15px 15px;
   border-radius: 3px;
   box-shadow: var(--shadow);
 
@@ -32,7 +32,7 @@ export const StyledForm = styled.form`
   }
 
   @media screen and (min-width: 768px) {
-    padding: 30px 20px;
+    /* padding: 30px 20px; */
     h1 {
       font-size: 18px;
     }

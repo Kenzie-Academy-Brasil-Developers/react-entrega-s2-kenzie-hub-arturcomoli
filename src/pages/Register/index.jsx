@@ -3,6 +3,7 @@ import Input from "../../components/Input";
 import Select from "../../components/Select";
 import Form from "../../components/Form";
 import BackgroundSection from "../../components/BackgroundSection";
+import { PasswordContainer } from "./styles";
 import Container from "../../components/Container";
 import Button from "../../components/Button";
 import { primaryNegative, primary } from "../../styles/global";
@@ -20,11 +21,13 @@ const Register = () => {
     password: yup
       .string()
       .required("Campo obrigatório")
-      .min([6], "Sua senha deve ter no mínimo 6 caracteres"),
+      .min([6], "Mínimo de 6 caracteres"),
     password_confirm: yup
       .string()
       .required("Campo obrigatório")
       .oneOf([yup.ref("password")], "Validação incorreta"),
+    contact: yup.string().required("Campo obrigatório"),
+    bio: yup.string().required("Campo obrigatório"),
     course_module: yup.string().required("Campo obrigatório"),
     // .validate((value) => value !== ""),
   });
@@ -54,6 +57,7 @@ const Register = () => {
         <Form onSubmit={handleSubmit(handleRegister)}>
           <h1>Crie sua conta</h1>
           <span>Rápido e grátis, vamos nessa</span>
+
           <Input
             label="Nome"
             name="name"
@@ -66,26 +70,48 @@ const Register = () => {
             register={register}
             error={errors.email?.message}
           />
+
+          <PasswordContainer>
+            <Input
+              pword
+              type="password"
+              label="Senha"
+              name="password"
+              register={register}
+              error={errors.password?.message}
+            />
+            <Input
+              pword
+              type="password"
+              label="Confirmar Senha"
+              name="password_confirm"
+              register={register}
+              error={errors.password_confirm?.message}
+            />
+          </PasswordContainer>
           <Input
-            type="password"
-            label="Senha"
-            name="password"
+            label="Bio (um pouco sobre você)"
+            name="bio"
             register={register}
-            error={errors.password?.message}
+            error={errors.bio?.message}
           />
-          <Input
-            type="password"
-            label="Confirmar Senha"
-            name="password_confirm"
-            register={register}
-            error={errors.password_confirm?.message}
-          />
-          <Select
-            label="Selecionar Módulo"
-            name="course_module"
-            register={register}
-            error={errors.course_module?.message}
-          />
+
+          <PasswordContainer>
+            <Input
+              pword
+              label="Contato"
+              name="contact"
+              register={register}
+              error={errors.contact?.message}
+            />
+
+            <Select
+              label="Selecionar Módulo"
+              name="course_module"
+              register={register}
+              error={errors.course_module?.message}
+            />
+          </PasswordContainer>
           {Object.keys(errors).length !== 0 ? (
             <Button children="Entrar" bgColor={primaryNegative} type="submit" />
           ) : (

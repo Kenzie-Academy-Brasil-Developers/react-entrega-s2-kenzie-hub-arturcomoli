@@ -5,11 +5,11 @@ import {
   ErrorsContainer,
 } from "./styles";
 
-const Input = ({ label, error, name, register, ...rest }) => {
+const Input = ({ pword, label, error, name, register, ...rest }) => {
   return (
-    <Container>
+    <Container pword={pword}>
       <label>{label}</label>
-      <InputContainer errored={!!error}>
+      <InputContainer errored={!!error} pword={pword}>
         <input {...rest} name={name} {...register(name)} />
       </InputContainer>
       <ErrorsContainer>
