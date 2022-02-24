@@ -1,4 +1,9 @@
-import { Container, InputContainer, HelperText } from "./styles";
+import {
+  Container,
+  InputContainer,
+  HelperText,
+  ErrorsContainer,
+} from "./styles";
 
 const Input = ({ label, error, name, register, ...rest }) => {
   return (
@@ -7,7 +12,9 @@ const Input = ({ label, error, name, register, ...rest }) => {
       <InputContainer errored={!!error}>
         <input {...rest} name={name} {...register(name)} />
       </InputContainer>
-      <div>{!!error && <HelperText>{error}</HelperText>}</div>
+      <ErrorsContainer>
+        <HelperText>{error}</HelperText>
+      </ErrorsContainer>
     </Container>
   );
 };

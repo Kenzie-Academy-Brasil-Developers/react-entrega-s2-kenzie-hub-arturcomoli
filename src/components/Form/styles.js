@@ -6,7 +6,7 @@ export const StyledForm = styled.form`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 30px 15px;
+  padding: 20px 15px;
   border-radius: 3px;
   box-shadow: var(--shadow);
 
@@ -16,7 +16,7 @@ export const StyledForm = styled.form`
   }
 
   button {
-    margin: 5px 0 15px 0;
+    margin: 10px 0 15px 0;
   }
 
   span {
@@ -29,5 +29,15 @@ export const StyledForm = styled.form`
     font-size: 12px;
     line-height: 18px;
     transition: 0.5s;
+  }
+
+  @media screen and (min-width: 768px) {
+    padding: 30px 20px;
+    h1 {
+      font-size: 18px;
+    }
+    span {
+      font-size: 12px;
+    }
   }
 `;

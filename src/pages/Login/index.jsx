@@ -28,7 +28,6 @@ const Login = () => {
   } = useForm({
     resolver: yupResolver(formSchema),
   });
-  console.log(errors);
 
   const handleLogin = (data) => {
     console.log(data);
@@ -51,6 +50,7 @@ const Login = () => {
             error={errors.email?.message}
           />
           <Input
+            type="password"
             label="Senha"
             name="password"
             register={register}

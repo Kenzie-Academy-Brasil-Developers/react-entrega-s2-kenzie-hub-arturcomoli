@@ -7,7 +7,7 @@ export const Container = styled.div`
 `;
 
 export const InputContainer = styled.div`
-  margin: 4px 0 8px 0;
+  margin: 8px 0 0px 0;
   display: flex;
   border-radius: 4px;
   /* padding-left: 16px; */
@@ -39,6 +39,10 @@ export const InputContainer = styled.div`
     align-items: center;
     flex: 1;
   }
+`;
+
+export const ErrorsContainer = styled.div`
+  /* height: 13px; */
 `;
 
 export const HelperText = styled.span`

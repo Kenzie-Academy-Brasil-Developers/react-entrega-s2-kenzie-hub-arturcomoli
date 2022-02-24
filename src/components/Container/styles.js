@@ -3,7 +3,7 @@ import { grey3, shadow } from "../../styles/global";
 
 export const DivContainer = styled.div`
   width: 90%;
-  max-width: ${(props) => (!props.home ? "300px" : "800px")};
+  max-width: ${(props) => (!props.home ? "350px" : "800px")};
   display: flex;
   flex-direction: column;
   justify-content: center;
