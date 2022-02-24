@@ -23,15 +23,11 @@ export const StyledForm = styled.form`
     font-size: 9px;
   }
 
-  a {
+  p {
     margin: 10px 0 10px 0;
     color: var(--grey-1);
     font-size: 12px;
     line-height: 18px;
     transition: 0.5s;
-  }
-
-  a:hover {
-    color: var(--grey-2);
   }
 `;
