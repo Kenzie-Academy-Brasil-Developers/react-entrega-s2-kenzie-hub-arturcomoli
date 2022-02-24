@@ -31,6 +31,9 @@ export default createGlobalStyle`
         --Success: #3FE864;
         --Negative: #E83F5B;
 
+        --shadow: 0px 4px 40px -10px #00000040;
+
+
         body {
             background: var(--grey-4);
             font-family: "Inter", sans-serif;
@@ -111,3 +114,4 @@ export const grey3 = "#212529";
 export const grey4 = "#121214";
 export const Success = "#3FE864";
 export const Negative = "#E83F5B";
+export const shadow = "0px 4px 40px -10px #00000040";

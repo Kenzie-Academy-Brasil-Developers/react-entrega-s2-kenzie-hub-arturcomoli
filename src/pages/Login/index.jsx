@@ -3,7 +3,6 @@ import Button from "../../components/Button";
 import Header from "../../components/Header";
 import BackgroundSection from "../../components/BackgroundSection";
 import { primary, grey1 } from "../../styles/global";
-import InnerContainer from "../../components/InnerContainer";
 import Form from "../../components/Form";
 import Container from "../../components/Container";
 
@@ -19,11 +18,9 @@ const Login = () => {
           <Input label="E-mail" />
           <Input label="Senha" />
           <Button children="Entrar" bgColor={primary} />
-        </Form>
-        <InnerContainer>
           <Link to="/register">Ainda não possui uma conta?</Link>
           <Button children="Cadastre-se" bgColor={grey1} />
-        </InnerContainer>
+        </Form>
       </Container>
     </BackgroundSection>
     // <Button children="Teste" bgColor={grey1} isDisabled />
