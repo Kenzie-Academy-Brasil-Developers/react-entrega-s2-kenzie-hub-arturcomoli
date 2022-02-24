@@ -16,7 +16,7 @@ export const StyledForm = styled.form`
   }
 
   button {
-    margin: 10px 0 15px 0;
+    margin: 15px 0 10px 0;
   }
 
   span {

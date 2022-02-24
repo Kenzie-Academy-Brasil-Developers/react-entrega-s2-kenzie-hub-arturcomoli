@@ -12,6 +12,8 @@ import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useHistory } from "react-router-dom";
+import api from "../../services/api";
+import { toast } from "react-toastify";
 
 const Register = () => {
   const history = useHistory();
@@ -29,7 +31,6 @@ const Register = () => {
     contact: yup.string().required("Campo obrigatório"),
     bio: yup.string().required("Campo obrigatório"),
     course_module: yup.string().required("Campo obrigatório"),
-    // .validate((value) => value !== ""),
   });
 
   const {
@@ -47,6 +48,11 @@ const Register = () => {
 
   const handleRegister = (data) => {
     delete data.password_confirm;
+    api.post("/users", data).catch((err) => {
+      toast.error("Algo deu errado, cheque as credenciais");
+    });
+    toast.success("Usuário cadastrado com sucesso!");
+    history.push("/");
     console.log(data);
   };
 
