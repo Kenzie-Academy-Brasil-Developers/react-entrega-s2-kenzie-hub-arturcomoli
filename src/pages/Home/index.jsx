@@ -17,7 +17,7 @@ import BackgroundAnimation from "../../components/BackgroundAnimation";
 
 const Home = ({ auth, setAuth }) => {
   const [test, setTest] = useState([]);
-  const [show, setShow] = useState(false);
+  const [modal, setModal] = useState(false);
   const [techs, setTechs] = useState([]);
   const [userData, setUserData] = useState({});
   const history = useHistory();
@@ -44,21 +44,22 @@ const Home = ({ auth, setAuth }) => {
   }
 
   const handleLogout = () => {
-    localStorage.clear("@KenzieHub:token");
+    toast.success("Logout realizado com sucesso!");
+    localStorage.clear();
+    localStorage.clear();
     setAuth(false);
     history.push("/");
   };
 
   const handleModal = () => {
-    setShow(!show);
+    setModal(!modal);
   };
 
   return (
     <BackgroundAnimation>
       <BackgroundSection>
-        {/* <DetailsModal show={true} /> */}
         <TechModal
-          show={show}
+          modal={modal}
           onClick={handleModal}
           token={token}
           setTest={setTest}

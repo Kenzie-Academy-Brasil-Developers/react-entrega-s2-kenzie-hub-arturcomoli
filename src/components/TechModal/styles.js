@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const ModalBackground = styled.div`
   z-index: auto;
-  display: ${(props) => (props.show ? "block" : "none")};
+  display: ${(props) => (props.modal ? "block" : "none")};
   position: fixed;
   top: 0;
   left: 0;

@@ -7,6 +7,7 @@ const Card = ({ status, title, id, setTest, token }) => {
   const handlePop = () => {
     setPop(!pop);
   };
+
   return (
     <>
       <DetailsModal
@@ -17,6 +18,7 @@ const Card = ({ status, title, id, setTest, token }) => {
         setTest={setTest}
         id={id}
       />
+
       <StyledLi onClick={handlePop}>
         <p>{title}</p>
         <span>{status}</span>

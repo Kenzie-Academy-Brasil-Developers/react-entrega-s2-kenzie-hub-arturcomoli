@@ -11,7 +11,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import api from "../../services/api";
 import { toast } from "react-toastify";
 
-const TechModal = ({ setTest, token, show, ...rest }) => {
+const TechModal = ({ onClick, setTest, token, modal, ...rest }) => {
   const formSchema = yup.object().shape({
     title: yup.string().required("Campo obrigatório"),
     status: yup.string().required("Campo obrigatório"),
@@ -41,11 +41,11 @@ const TechModal = ({ setTest, token, show, ...rest }) => {
   };
 
   return (
-    <ModalBackground show={show}>
+    <ModalBackground modal={modal}>
       <Container>
         <TechModalHeader>
           <h3>Cadastrar Tecnologia</h3>
-          <AiOutlineClose {...rest} />
+          <AiOutlineClose onClick={onClick} />
         </TechModalHeader>
         <Form onSubmit={handleSubmit(handleNewTech)}>
           <Input
