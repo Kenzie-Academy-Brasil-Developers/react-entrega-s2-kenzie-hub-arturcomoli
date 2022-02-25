@@ -36,11 +36,12 @@ const Login = ({ auth, setAuth }) => {
     const response = await api.post("/sessions", data).catch((err) => {
       toast.error("E-mail ou senha inválidos!");
     });
-    toast.success("Login realizado com sucesso!");
+
     const { token } = response.data;
     const { id } = response.data.user;
     localStorage.setItem("@KenzieHub:token", JSON.stringify(token));
     localStorage.setItem("@KenzieHub:id", JSON.stringify(id));
+    toast.success("Login realizado com sucesso!");
     setAuth(true);
     history.push("/home");
   };

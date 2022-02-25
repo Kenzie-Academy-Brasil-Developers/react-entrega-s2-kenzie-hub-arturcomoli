@@ -19,6 +19,8 @@ const Home = ({ auth, setAuth }) => {
   const [test, setTest] = useState([]);
   const [show, setShow] = useState(false);
   const [techs, setTechs] = useState([]);
+  const [name, setName] = useState("");
+  const [userData, setUserData] = useState({});
   const history = useHistory();
   const token = JSON.parse(localStorage.getItem("@KenzieHub:token"));
   const id = JSON.parse(localStorage.getItem("@KenzieHub:id"));
@@ -33,6 +35,7 @@ const Home = ({ auth, setAuth }) => {
           )
         );
       setTechs(response.data.techs);
+      setUserData(response.data);
     }
     getTechnologies();
   }, [test]);
@@ -63,7 +66,7 @@ const Home = ({ auth, setAuth }) => {
       <Container home>
         <Header children="Sair" onClick={handleLogout} />
         <ExplodedBorder>
-          <Presentation />
+          <Presentation userData={userData} />
         </ExplodedBorder>
         <ContainerHome onClick={handleModal} />
         <ContainerTecnologies>
