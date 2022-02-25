@@ -37,13 +37,10 @@ export default createGlobalStyle`
         body {
             background: var(--grey-4);
             font-family: "Inter", sans-serif;
-            color: var(--grey-1)
+            color: var(--grey-1)            
         }
 
-        h1, h2, h3 {
-            font-size: 1rem
-        } 
-
+        
         h1, h3 {
             font-weight: 700;
         }
@@ -68,7 +65,6 @@ export default createGlobalStyle`
         input, select {
             color: var(--grey-0);
             font-weight: 400;
-            font-size: 13px;
             line-height: 21px;
             background-color: var(--grey-2);
             border: none;
@@ -81,19 +77,7 @@ export default createGlobalStyle`
             line-height:21px;
         }
 
-        @media screen and (min-width: 768px) {
-            h1, h2, h3 {
-            font-size: 18px;
-        }                 
-
-        label {            
-            font-size: 0.75rem;
-        }
-
-        input, select {            
-            font-size: 1rem;
-            line-height: 26px;
-        }
+        @media screen and (min-width: 768px) {       
 
         input::placeholder, select::placeholder {            
             font-size: 1rem;

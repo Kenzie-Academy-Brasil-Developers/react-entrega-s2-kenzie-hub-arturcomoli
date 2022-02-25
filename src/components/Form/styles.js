@@ -17,6 +17,8 @@ export const StyledForm = styled.form`
 
   button {
     margin: 15px 0 10px 0;
+    font-size: 13px;
+    font-weight: 500;
   }
 
   span {
@@ -29,6 +31,10 @@ export const StyledForm = styled.form`
     font-size: 12px;
     line-height: 18px;
     transition: 0.5s;
+  }
+
+  label {
+    font-size: 10px;
   }
 
   @media screen and (min-width: 768px) {

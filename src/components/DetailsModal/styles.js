@@ -38,7 +38,7 @@ export const TechModalHeader = styled.div`
 
   h3 {
     color: var(--grey-0);
-    font-size: 12px;
+    font-size: 14px;
   }
 
   svg {

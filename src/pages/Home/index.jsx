@@ -13,6 +13,7 @@ import { useState } from "react";
 import { useEffect } from "react";
 import api from "../../services/api";
 import { toast } from "react-toastify";
+import DetailsModal from "../../components/DetailsModal";
 
 const Home = ({ auth, setAuth }) => {
   const [test, setTest] = useState([]);
@@ -35,7 +36,6 @@ const Home = ({ auth, setAuth }) => {
     }
     getTechnologies();
   }, [test]);
-  console.log(techs);
 
   if (!auth) {
     return <Redirect to="/" />;
@@ -53,6 +53,7 @@ const Home = ({ auth, setAuth }) => {
 
   return (
     <BackgroundSection>
+      {/* <DetailsModal show={true} /> */}
       <TechModal
         show={show}
         onClick={handleModal}
@@ -67,7 +68,16 @@ const Home = ({ auth, setAuth }) => {
         <ContainerHome onClick={handleModal} />
         <ContainerTecnologies>
           {techs.map(({ status, title, id }) => {
-            return <Card status={status} title={title} key={id} />;
+            return (
+              <Card
+                token={token}
+                status={status}
+                title={title}
+                key={id}
+                id={id}
+                setTest={setTest}
+              />
+            );
           })}
         </ContainerTecnologies>
       </Container>

@@ -4,6 +4,7 @@ import { grey0, grey2, Negative } from "../../styles/global";
 export const Container = styled.div`
   text-align: left;
   width: 100%;
+  margin: 8px 0;
 
   label {
     margin-bottom: 18px;

@@ -41,7 +41,6 @@ const Register = ({ auth }) => {
   } = useForm({
     resolver: yupResolver(formSchema),
   });
-  console.log(errors);
 
   const backToLogin = () => {
     history.push("/");
@@ -58,7 +57,6 @@ const Register = ({ auth }) => {
     });
     toast.success("Usuário cadastrado com sucesso!");
     history.push("/");
-    console.log(data);
   };
 
   return (

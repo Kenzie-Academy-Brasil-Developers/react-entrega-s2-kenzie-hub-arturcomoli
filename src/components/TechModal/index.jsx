@@ -24,7 +24,6 @@ const TechModal = ({ setTest, token, show, ...rest }) => {
   } = useForm({
     resolver: yupResolver(formSchema),
   });
-  console.log(errors);
   const handleNewTech = (data) => {
     api
       .post("/users/techs", data, {

@@ -32,21 +32,17 @@ const Login = ({ auth, setAuth }) => {
     resolver: yupResolver(formSchema),
   });
 
-  const handleLogin = (data) => {
-    api
-      .post("/sessions", data)
-      .catch((err) => {
-        toast.error("E-mail ou senha inválidos!");
-      })
-      .then((res) => {
-        toast.success("Login realizado com sucesso!");
-        const { token } = res.data;
-        const { id } = res.data.user;
-        localStorage.setItem("@KenzieHub:token", JSON.stringify(token));
-        localStorage.setItem("@KenzieHub:id", JSON.stringify(id));
-        setAuth(true);
-        history.push("/home");
-      });
+  const handleLogin = async (data) => {
+    const response = await api.post("/sessions", data).catch((err) => {
+      toast.error("E-mail ou senha inválidos!");
+    });
+    toast.success("Login realizado com sucesso!");
+    const { token } = response.data;
+    const { id } = response.data.user;
+    localStorage.setItem("@KenzieHub:token", JSON.stringify(token));
+    localStorage.setItem("@KenzieHub:id", JSON.stringify(id));
+    setAuth(true);
+    history.push("/home");
   };
 
   if (auth) {
