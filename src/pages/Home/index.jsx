@@ -13,13 +13,12 @@ import { useState } from "react";
 import { useEffect } from "react";
 import api from "../../services/api";
 import { toast } from "react-toastify";
-import DetailsModal from "../../components/DetailsModal";
+import BackgroundAnimation from "../../components/BackgroundAnimation";
 
 const Home = ({ auth, setAuth }) => {
   const [test, setTest] = useState([]);
   const [show, setShow] = useState(false);
   const [techs, setTechs] = useState([]);
-  const [name, setName] = useState("");
   const [userData, setUserData] = useState({});
   const history = useHistory();
   const token = JSON.parse(localStorage.getItem("@KenzieHub:token"));
@@ -55,36 +54,38 @@ const Home = ({ auth, setAuth }) => {
   };
 
   return (
-    <BackgroundSection>
-      {/* <DetailsModal show={true} /> */}
-      <TechModal
-        show={show}
-        onClick={handleModal}
-        token={token}
-        setTest={setTest}
-      />
-      <Container home>
-        <Header children="Sair" onClick={handleLogout} />
-        <ExplodedBorder>
-          <Presentation userData={userData} />
-        </ExplodedBorder>
-        <ContainerHome onClick={handleModal} />
-        <ContainerTecnologies>
-          {techs.map(({ status, title, id }) => {
-            return (
-              <Card
-                token={token}
-                status={status}
-                title={title}
-                key={id}
-                id={id}
-                setTest={setTest}
-              />
-            );
-          })}
-        </ContainerTecnologies>
-      </Container>
-    </BackgroundSection>
+    <BackgroundAnimation>
+      <BackgroundSection>
+        {/* <DetailsModal show={true} /> */}
+        <TechModal
+          show={show}
+          onClick={handleModal}
+          token={token}
+          setTest={setTest}
+        />
+        <Container home>
+          <Header children="Sair" onClick={handleLogout} />
+          <ExplodedBorder>
+            <Presentation userData={userData} />
+          </ExplodedBorder>
+          <ContainerHome onClick={handleModal} />
+          <ContainerTecnologies>
+            {techs.map(({ status, title, id }) => {
+              return (
+                <Card
+                  token={token}
+                  status={status}
+                  title={title}
+                  key={id}
+                  id={id}
+                  setTest={setTest}
+                />
+              );
+            })}
+          </ContainerTecnologies>
+        </Container>
+      </BackgroundSection>
+    </BackgroundAnimation>
   );
 };
 

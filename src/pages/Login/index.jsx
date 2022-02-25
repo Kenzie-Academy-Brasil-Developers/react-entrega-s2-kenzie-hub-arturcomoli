@@ -13,6 +13,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { useHistory } from "react-router-dom";
 import api from "../../services/api";
 import { Redirect } from "react-router-dom";
+import BackgroundAnimation from "../../components/BackgroundAnimation";
 
 const Login = ({ auth, setAuth }) => {
   const history = useHistory();
@@ -55,40 +56,46 @@ const Login = ({ auth, setAuth }) => {
   };
 
   return (
-    <BackgroundSection>
-      <Container>
-        <Header login />
-        <Form onSubmit={handleSubmit(handleLogin)}>
-          <h1>Login</h1>
-          <Input
-            label="E-mail"
-            name="email"
-            register={register}
-            error={errors.email?.message}
-          />
-          <Input
-            type="password"
-            label="Senha"
-            name="password"
-            register={register}
-            error={errors.password?.message}
-          />
+    <BackgroundAnimation>
+      <BackgroundSection>
+        <Container>
+          <Header login />
+          <Form onSubmit={handleSubmit(handleLogin)}>
+            <h1>Login</h1>
+            <Input
+              label="E-mail"
+              name="email"
+              register={register}
+              error={errors.email?.message}
+            />
+            <Input
+              type="password"
+              label="Senha"
+              name="password"
+              register={register}
+              error={errors.password?.message}
+            />
 
-          {Object.keys(errors).length !== 0 ? (
-            <Button children="Entrar" bgColor={primaryNegative} type="submit" />
-          ) : (
-            <Button children="Entrar" bgColor={primary} type="submit" />
-          )}
+            {Object.keys(errors).length !== 0 ? (
+              <Button
+                children="Entrar"
+                bgColor={primaryNegative}
+                type="submit"
+              />
+            ) : (
+              <Button children="Entrar" bgColor={primary} type="submit" />
+            )}
 
-          <p>Ainda não possui uma conta?</p>
-          <Button
-            children="Cadastre-se"
-            bgColor={grey1}
-            onClick={redirectToRegistration}
-          />
-        </Form>
-      </Container>
-    </BackgroundSection>
+            <p>Ainda não possui uma conta?</p>
+            <Button
+              children="Cadastre-se"
+              bgColor={grey1}
+              onClick={redirectToRegistration}
+            />
+          </Form>
+        </Container>
+      </BackgroundSection>
+    </BackgroundAnimation>
   );
 };
 

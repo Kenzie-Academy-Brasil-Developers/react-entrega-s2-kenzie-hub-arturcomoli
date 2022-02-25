@@ -15,6 +15,7 @@ import { useHistory } from "react-router-dom";
 import api from "../../services/api";
 import { toast } from "react-toastify";
 import { Redirect } from "react-router-dom";
+import BackgroundAnimation from "../../components/BackgroundAnimation";
 
 const Register = ({ auth }) => {
   const history = useHistory();
@@ -60,75 +61,81 @@ const Register = ({ auth }) => {
   };
 
   return (
-    <BackgroundSection>
-      <Container>
-        <Header children="Voltar" onClick={backToLogin} />
-        <Form onSubmit={handleSubmit(handleRegister)}>
-          <h1>Crie sua conta</h1>
-          <span>Rápido e grátis, vamos nessa</span>
+    <BackgroundAnimation>
+      <BackgroundSection>
+        <Container>
+          <Header children="Voltar" onClick={backToLogin} />
+          <Form onSubmit={handleSubmit(handleRegister)}>
+            <h1>Crie sua conta</h1>
+            <span>Rápido e grátis, vamos nessa</span>
 
-          <Input
-            label="Nome"
-            name="name"
-            register={register}
-            error={errors.name?.message}
-          />
-          <Input
-            label="E-mail"
-            name="email"
-            register={register}
-            error={errors.email?.message}
-          />
-
-          <PasswordContainer>
             <Input
-              pword
-              type="password"
-              label="Senha"
-              name="password"
+              label="Nome"
+              name="name"
               register={register}
-              error={errors.password?.message}
+              error={errors.name?.message}
             />
             <Input
-              pword
-              type="password"
-              label="Confirmar Senha"
-              name="password_confirm"
+              label="E-mail"
+              name="email"
               register={register}
-              error={errors.password_confirm?.message}
+              error={errors.email?.message}
             />
-          </PasswordContainer>
-          <Input
-            label="Bio (um pouco sobre você)"
-            name="bio"
-            register={register}
-            error={errors.bio?.message}
-          />
 
-          <PasswordContainer>
+            <PasswordContainer>
+              <Input
+                pword
+                type="password"
+                label="Senha"
+                name="password"
+                register={register}
+                error={errors.password?.message}
+              />
+              <Input
+                pword
+                type="password"
+                label="Confirmar Senha"
+                name="password_confirm"
+                register={register}
+                error={errors.password_confirm?.message}
+              />
+            </PasswordContainer>
             <Input
-              pword
-              label="Contato"
-              name="contact"
+              label="Bio (um pouco sobre você)"
+              name="bio"
               register={register}
-              error={errors.contact?.message}
+              error={errors.bio?.message}
             />
 
-            <Select
-              label="Selecionar Módulo"
-              name="course_module"
-              register={register}
-              error={errors.course_module?.message}
-            />
-          </PasswordContainer>
-          {Object.keys(errors).length !== 0 ? (
-            <Button children="Entrar" bgColor={primaryNegative} type="submit" />
-          ) : (
-            <Button children="Entrar" bgColor={primary} type="submit" />
-          )}
-        </Form>
-      </Container>
-    </BackgroundSection>
+            <PasswordContainer>
+              <Input
+                pword
+                label="Contato"
+                name="contact"
+                register={register}
+                error={errors.contact?.message}
+              />
+
+              <Select
+                label="Selecionar Módulo"
+                name="course_module"
+                register={register}
+                error={errors.course_module?.message}
+              />
+            </PasswordContainer>
+            {Object.keys(errors).length !== 0 ? (
+              <Button
+                children="Entrar"
+                bgColor={primaryNegative}
+                type="submit"
+              />
+            ) : (
+              <Button children="Entrar" bgColor={primary} type="submit" />
+            )}
+          </Form>
+        </Container>
+      </BackgroundSection>
+    </BackgroundAnimation>
   );
 };
 export default Register;
