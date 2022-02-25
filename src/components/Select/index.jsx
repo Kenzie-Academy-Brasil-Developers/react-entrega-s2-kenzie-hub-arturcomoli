@@ -1,11 +1,11 @@
 import { Container, InputContainer, HelperText } from "./styles";
 
-const Select = ({ register, name, label, error, ...rest }) => {
+const Select = ({ modal, register, name, label, error, ...rest }) => {
   return (
     <Container>
       <label>{label}</label>
       <InputContainer errored={!!error}>
-        <select {...rest} name={name} {...register(name)}>
+        <select {...rest} name={name} {...register(name)} modal>
           <option value="">Escolha um Módulo</option>
           <option value="Primeiro módulo (Introdução ao Frontend)">
             Primeiro Módulo

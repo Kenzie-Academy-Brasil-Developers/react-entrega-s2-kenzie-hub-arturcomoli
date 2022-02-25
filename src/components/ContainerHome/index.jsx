@@ -1,12 +1,12 @@
 import { StyledTitle } from "./styles";
 import { BiPlus } from "react-icons/bi";
 
-const ContainerHome = () => {
+const ContainerHome = ({ ...rest }) => {
   return (
     <StyledTitle>
       <h2>Tecnologias</h2>
       <div>
-        <BiPlus />
+        <BiPlus {...rest} />
       </div>
     </StyledTitle>
   );

@@ -3,7 +3,7 @@ import { grey0, grey2, Negative } from "../../styles/global";
 
 export const Container = styled.div`
   text-align: left;
-  width: 50%;
+  width: 100%;
 
   label {
     margin-bottom: 18px;
@@ -14,7 +14,7 @@ export const InputContainer = styled.div`
   margin: 8px 0 0px 0;
   display: flex;
   border-radius: 4px;
-  padding: 8px 0 8px 0px;
+  padding: 8px 0 8px 13px;
   background-color: ${grey2};
   width: 100%;
   border: 1px solid ${grey2};
@@ -42,7 +42,7 @@ export const InputContainer = styled.div`
     align-items: center;
     width: 100%;
     /* flex: 1; */
-    font-size: 13px;
+    font-size: 16px;
   }
 `;
 

@@ -6,10 +6,13 @@ import ContainerHome from "../../components/ContainerHome";
 import ContainerTecnologies from "../../components/ContainerTecnologies";
 import Card from "../../components/Card";
 import ExplodedBorder from "../../components/ExplodedBorder";
+import TechModal from "../../components/TechModal";
 import { Redirect } from "react-router-dom";
 import { useHistory } from "react-router-dom";
+import { useState } from "react";
 
 const Home = ({ auth, setAuth }) => {
+  const [show, setShow] = useState(false);
   const history = useHistory();
 
   if (!auth) {
@@ -22,14 +25,19 @@ const Home = ({ auth, setAuth }) => {
     history.pushState("/");
   };
 
+  const handleModal = () => {
+    setShow(!show);
+  };
+
   return (
     <BackgroundSection>
+      <TechModal show={show} onClick={handleModal} />
       <Container home>
         <Header children="Sair" onClick={handleLogout} />
         <ExplodedBorder>
           <Presentation />
         </ExplodedBorder>
-        <ContainerHome />
+        <ContainerHome onClick={handleModal} />
         <ContainerTecnologies>
           <Card />
           <Card />
