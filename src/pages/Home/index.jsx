@@ -10,10 +10,32 @@ import TechModal from "../../components/TechModal";
 import { Redirect } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 import { useState } from "react";
+import { useEffect } from "react";
+import api from "../../services/api";
+import { toast } from "react-toastify";
 
 const Home = ({ auth, setAuth }) => {
+  const [test, setTest] = useState([]);
   const [show, setShow] = useState(false);
+  const [techs, setTechs] = useState([]);
   const history = useHistory();
+  const token = JSON.parse(localStorage.getItem("@KenzieHub:token"));
+  const id = JSON.parse(localStorage.getItem("@KenzieHub:id"));
+
+  useEffect(() => {
+    async function getTechnologies() {
+      const response = await api
+        .get(`/users/${id}`)
+        .catch((err) =>
+          toast.error(
+            "Algo deu errado! Verifique se você está autorizado para tal ação."
+          )
+        );
+      setTechs(response.data.techs);
+    }
+    getTechnologies();
+  }, [test]);
+  console.log(techs);
 
   if (!auth) {
     return <Redirect to="/" />;
@@ -22,7 +44,7 @@ const Home = ({ auth, setAuth }) => {
   const handleLogout = () => {
     localStorage.clear("@KenzieHub:token");
     setAuth(false);
-    history.pushState("/");
+    history.push("/");
   };
 
   const handleModal = () => {
@@ -31,7 +53,12 @@ const Home = ({ auth, setAuth }) => {
 
   return (
     <BackgroundSection>
-      <TechModal show={show} onClick={handleModal} />
+      <TechModal
+        show={show}
+        onClick={handleModal}
+        token={token}
+        setTest={setTest}
+      />
       <Container home>
         <Header children="Sair" onClick={handleLogout} />
         <ExplodedBorder>
@@ -39,17 +66,9 @@ const Home = ({ auth, setAuth }) => {
         </ExplodedBorder>
         <ContainerHome onClick={handleModal} />
         <ContainerTecnologies>
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
+          {techs.map(({ status, title, id }) => {
+            return <Card status={status} title={title} key={id} />;
+          })}
         </ContainerTecnologies>
       </Container>
     </BackgroundSection>

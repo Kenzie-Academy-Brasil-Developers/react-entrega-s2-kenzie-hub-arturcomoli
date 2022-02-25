@@ -40,12 +40,12 @@ const Login = ({ auth, setAuth }) => {
       })
       .then((res) => {
         toast.success("Login realizado com sucesso!");
-        console.log(res);
         const { token } = res.data;
+        const { id } = res.data.user;
         localStorage.setItem("@KenzieHub:token", JSON.stringify(token));
+        localStorage.setItem("@KenzieHub:id", JSON.stringify(id));
         setAuth(true);
         history.push("/home");
-        console.log(token);
       });
   };
 

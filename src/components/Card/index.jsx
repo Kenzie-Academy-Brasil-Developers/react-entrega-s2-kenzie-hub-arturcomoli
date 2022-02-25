@@ -1,10 +1,10 @@
 import { StyledLi } from "./styles";
 
-const Card = () => {
+const Card = ({ status, title }) => {
   return (
     <StyledLi>
-      <p>Title Tech</p>
-      <span>Level</span>
+      <p>{title}</p>
+      <span>{status}</span>
     </StyledLi>
   );
 };

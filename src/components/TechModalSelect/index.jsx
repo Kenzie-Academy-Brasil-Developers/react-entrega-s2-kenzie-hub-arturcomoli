@@ -9,7 +9,7 @@ const TechModalSelect = ({ register, name, label, error, ...rest }) => {
           <option value="">Escolha um status</option>
           <option value="Iniciante">Iniciante</option>
           <option value="Intermediário">Intermediário</option>
-          <option value="Avançado">Terceiro Módulo</option>
+          <option value="Avançado">Avançado</option>
         </select>
       </InputContainer>
       <div>{!!error && <HelperText>{error}</HelperText>}</div>

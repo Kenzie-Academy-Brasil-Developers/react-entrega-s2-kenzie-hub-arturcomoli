@@ -8,8 +8,10 @@ import { primary } from "../../styles/global";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
+import api from "../../services/api";
+import { toast } from "react-toastify";
 
-const TechModal = ({ show, ...rest }) => {
+const TechModal = ({ setTest, token, show, ...rest }) => {
   const formSchema = yup.object().shape({
     title: yup.string().required("Campo obrigatório"),
     status: yup.string().required("Campo obrigatório"),
@@ -24,7 +26,19 @@ const TechModal = ({ show, ...rest }) => {
   });
   console.log(errors);
   const handleNewTech = (data) => {
-    console.log(data);
+    api
+      .post("/users/techs", data, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+      .then((res) => {
+        setTest(res.data);
+        toast.success("Tecnologia cadastrada com sucesso!");
+      })
+      .catch((err) => {
+        toast.error("Algo deu errado! Tecnologia não cadastrada.");
+      });
   };
 
   return (
