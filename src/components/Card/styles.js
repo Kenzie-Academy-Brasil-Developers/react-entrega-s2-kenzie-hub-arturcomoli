@@ -10,6 +10,7 @@ export const StyledLi = styled.li`
   border-radius: 4px;
   transition: 0.5s;
   margin: 8px 0;
+  cursor: pointer;
 
   p {
     color: var(--grey-0);

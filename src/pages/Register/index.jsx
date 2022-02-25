@@ -14,8 +14,9 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { useHistory } from "react-router-dom";
 import api from "../../services/api";
 import { toast } from "react-toastify";
+import { Redirect } from "react-router-dom";
 
-const Register = () => {
+const Register = ({ auth }) => {
   const history = useHistory();
   const formSchema = yup.object().shape({
     name: yup.string().required("Campo obrigatório"),
@@ -45,6 +46,10 @@ const Register = () => {
   const backToLogin = () => {
     history.push("/");
   };
+
+  if (auth) {
+    return <Redirect to="/home" />;
+  }
 
   const handleRegister = (data) => {
     delete data.password_confirm;

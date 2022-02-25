@@ -21,6 +21,6 @@ export const StyledUl = styled.ul`
   }
 
   @media screen and (min-width: 900px) {
-    max-height: 500px;
+    max-height: 350px;
   }
 `;

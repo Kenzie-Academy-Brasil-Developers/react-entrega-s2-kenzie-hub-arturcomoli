@@ -5,13 +5,16 @@ import BackgroundSection from "../../components/BackgroundSection";
 import { primary, grey1, primaryNegative } from "../../styles/global";
 import Form from "../../components/Form";
 import Container from "../../components/Container";
+import { toast } from "react-toastify";
 
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useHistory } from "react-router-dom";
+import api from "../../services/api";
+import { Redirect } from "react-router-dom";
 
-const Login = () => {
+const Login = ({ auth, setAuth }) => {
   const history = useHistory();
   const formSchema = yup.object().shape({
     email: yup.string().required("Campo obrigatório").email("E-mail inválido"),
@@ -30,8 +33,25 @@ const Login = () => {
   });
 
   const handleLogin = (data) => {
-    console.log(data);
+    api
+      .post("/sessions", data)
+      .catch((err) => {
+        toast.error("E-mail ou senha inválidos!");
+      })
+      .then((res) => {
+        toast.success("Login realizado com sucesso!");
+        console.log(res);
+        const { token } = res.data;
+        localStorage.setItem("@KenzieHub:token", JSON.stringify(token));
+        setAuth(true);
+        history.push("/home");
+        console.log(token);
+      });
   };
+
+  if (auth) {
+    return <Redirect to="/home" />;
+  }
 
   const redirectToRegistration = () => {
     history.push("/register");

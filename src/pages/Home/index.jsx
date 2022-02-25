@@ -6,12 +6,26 @@ import ContainerHome from "../../components/ContainerHome";
 import ContainerTecnologies from "../../components/ContainerTecnologies";
 import Card from "../../components/Card";
 import ExplodedBorder from "../../components/ExplodedBorder";
+import { Redirect } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
-const Home = () => {
+const Home = ({ auth, setAuth }) => {
+  const history = useHistory();
+
+  if (!auth) {
+    return <Redirect to="/" />;
+  }
+
+  const handleLogout = () => {
+    localStorage.clear("@KenzieHub:token");
+    setAuth(false);
+    history.pushState("/");
+  };
+
   return (
     <BackgroundSection>
       <Container home>
-        <Header children="Sair" />
+        <Header children="Sair" onClick={handleLogout} />
         <ExplodedBorder>
           <Presentation />
         </ExplodedBorder>
